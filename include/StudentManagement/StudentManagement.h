@@ -8,13 +8,13 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-
-class ManageStudent
+#include <random>
+class StudentManagement
 {
 protected:
-    Student *student_list_;
+    Student **student_list_;
     int size;
-    int cap = 10;
+    int cap = 100;
 
 public:
     virtual void addStudent(
@@ -22,12 +22,15 @@ public:
         std::string day_of_birth,
         std::string school_name,
         std::string course_name) = 0;
-    void show();
+    void showStudents();
+    void showScores();
     void bestStudent();
+    // void inputScore(string name, float score);
     // Student* getStudent(int id);
-    // bool deleteStudent(Student* student)=0;
+    bool deleteStudent(string name);
+    void takeExams();
+    void takeTests();
+    void doAssignments();
 };
-
-
 
 #endif // !STUDENTMANAGEMENT_H

@@ -6,6 +6,26 @@ CollegeStudent::CollegeStudent()
     this->n_assignment_ = 1;
     this->n_test_ = 1;
     this->n_exam_ = 1;
+
+    this->score_ = new float *[4];
+
+    this->score_[ASSIGNMENT_IDX] = new float[this->n_assignment_];
+    for (int i = 0; i < n_assignment_; ++i)
+    {
+        this->score_[ASSIGNMENT_IDX][i] = -1;
+    }
+
+    this->score_[TEST_IDX] = new float[this->n_test_];
+    for (int i = 0; i < n_test_; ++i)
+    {
+        this->score_[TEST_IDX][i] = -1;
+    }
+
+    this->score_[EXAM_IDX] = new float[this->n_exam_];
+    for (int i = 0; i < n_exam_; ++i)
+    {
+        this->score_[EXAM_IDX][i] = -1;
+    }
 }
 
 CollegeStudent::CollegeStudent(string name,
@@ -17,47 +37,28 @@ CollegeStudent::CollegeStudent(string name,
     this->day_of_birth_ = day_of_birth;
     this->school_name_ = school_name;
     this->course_name_ = course_name_;
-}
+    this->n_semester_ = 4;
+    this->n_assignment_ = 1;
+    this->n_test_ = 1;
+    this->n_exam_ = 1;
 
-int CollegeStudent::getNumberOfSemesters()
-{
-    return this->n_semester_;
-}
+    this->score_ = new float *[4];
 
-int CollegeStudent::getNumberOfAssignments()
-{
-    return this->n_assignment_;
-}
+    this->score_[ASSIGNMENT_IDX] = new float[this->n_assignment_];
+    for (int i = 0; i < n_assignment_; ++i)
+    {
+        this->score_[ASSIGNMENT_IDX][i] = -1;
+    }
 
-int CollegeStudent::getNumberOfTests()
-{
-    return this->n_test_;
-}
+    this->score_[TEST_IDX] = new float[this->n_test_];
+    for (int i = 0; i < n_test_; ++i)
+    {
+        this->score_[TEST_IDX][i] = -1;
+    }
 
-int CollegeStudent::getNumberOfExams()
-{
-    return this->n_exam_;
-}
-
-void CollegeStudent::printStudentInfo()
-{
-    cout << setw(25) << left << "Name"
-         << setw(20) << left << "Day Of Birth"
-         << setw(20) << left << "School name"
-         << setw(25) << left << "Course name"
-         << setw(15) << left << "N_Semesters"
-         << setw(15) << left << "N_Assignments"
-         << setw(10) << left << "N_Tests"
-         << setw(10) << left << "N_Exams"
-         << endl;
-
-    cout << setw(25) << left << this->name_
-         << setw(20) << left << this->day_of_birth_
-         << setw(20) << left << this->school_name_
-         << setw(25) << left << this->course_name_
-         << setw(15) << left << this->n_semester_
-         << setw(15) << left << this->n_assignment_
-         << setw(10) << left << this->n_test_
-         << setw(10) << left << this->n_exam_
-         << endl;
+    this->score_[EXAM_IDX] = new float[this->n_exam_];
+    for (int i = 0; i < n_exam_; ++i)
+    {
+        this->score_[EXAM_IDX][i] = -1;
+    }
 }

@@ -1,25 +1,29 @@
 #include "../../include/StudentManagement/ColStudentManagement.h"
 
-ManageColStudent::ManageColStudent()
+ColStudentManagement::ColStudentManagement()
 {
-    this->student_list_ = new CollegeStudent[this->cap];
+    this->student_list_ = new Student *[this->cap];
+    for(int i = 0; i < this->cap; ++i) {
+        student_list_[i] = new CollegeStudent();
+    }
     this->size = 0;
 }
 
-ManageColStudent::~ManageColStudent()
+ColStudentManagement::~ColStudentManagement()
 {
     delete[] this->student_list_;
 }
 
-void ManageColStudent::addStudent(
+void ColStudentManagement::addStudent(
     std::string name,
     std::string day_of_birth,
     std::string school_name,
     std::string course_name)
 {
-    this->student_list_[this->size] = CollegeStudent(
-        name,
-        day_of_birth,
-        school_name,
-        course_name);
+    this->student_list_[this->size]->setName(name);
+    this->student_list_[this->size]->setDayOfBirth(day_of_birth);
+    this->student_list_[this->size]->setSchoolName(school_name);
+    this->student_list_[this->size]->setCourseName(course_name);
+
+    this->size += 1;
 }

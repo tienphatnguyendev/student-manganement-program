@@ -5,11 +5,11 @@
 #include "../Student/Student.h"
 #include "../Student/CollegeStudent.h"
 #include <iostream>
-class ManageColStudent : public ManageStudent
+class ColStudentManagement : public StudentManagement
 {
 public:
-    ManageColStudent();
-    ~ManageColStudent();
+    ColStudentManagement();
+    ~ColStudentManagement();
     void addStudent(
         std::string name,
         std::string day_of_birth,
